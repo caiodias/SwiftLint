@@ -165,7 +165,7 @@ public struct OpeningBraceRule: CorrectableRule, ConfigurationProviderRule, Auto
 
     public func correct(file: SwiftLintFile) -> [Correction] {
         let violatingRanges = file.violatingOpeningBraceRanges().filter {
-            !file.ruleEnabled(violatingRanges: [$0.range], for: self).isEmpty
+            file.ruleEnabled(violatingRanges: [$0.range], for: self).isNotEmpty
         }
         var correctedContents = file.contents
         var adjustedLocations = [Location]()

@@ -136,8 +136,8 @@ public struct NimbleOperatorRule: ConfigurationProviderRule, OptInRule, Correcta
 
     public func correct(file: SwiftLintFile) -> [Correction] {
         let matches = violationMatchesRanges(in: file)
-            .filter { !file.ruleEnabled(violatingRanges: [$0], for: self).isEmpty }
-        guard !matches.isEmpty else { return [] }
+            .filter { file.ruleEnabled(violatingRanges: [$0], for: self).isNotEmpty }
+        guard matches.isNotEmpty else { return [] }
 
         let description = Self.description
         var corrections: [Correction] = []
@@ -183,7 +183,7 @@ private extension String {
 
         for case let (pattern, operatorString?) in [toPattern, toNotPattern] {
             let expression = regex(pattern)
-            guard !expression.matches(in: self, options: [], range: range).isEmpty else {
+            guard expression.matches(in: self, options: [], range: range).isNotEmpty else {
                 continue
             }
 
