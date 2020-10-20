@@ -30,6 +30,10 @@
 * Fix incorrect autocorrection in `prefer_zero_over_explicit_init` rule.  
   [Paul Taykalo](https://github.com/PaulTaykalo)
 
+* Fix inconsistency in `operator_usage_whitespace` rule.  
+  [Paul Taykalo](https://github.com/PaulTaykalo)
+  [#3388](https://github.com/realm/SwiftLint/issues/3388)
+
 ## 0.40.3: Greased Up Drum Bearings
 
 #### Breaking
